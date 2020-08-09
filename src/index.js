@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import RoutingWrapper from './RoutingWrapper';
 import * as serviceWorker from './serviceWorker';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+
+const darkTheme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <RoutingWrapper />
+    <MuiThemeProvider theme={darkTheme}>
+      <RoutingWrapper />
+    </MuiThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
