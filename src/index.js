@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import store from './ReduxStore';
+import {Provider} from 'react-redux';
 import RoutingWrapper from './RoutingWrapper';
 import * as serviceWorker from './serviceWorker';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
@@ -12,11 +14,11 @@ const darkTheme = createMuiTheme({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <MuiThemeProvider theme={darkTheme}>
+  <MuiThemeProvider theme={darkTheme}>
+    <Provider {...{store: store.getStore()}}>
       <RoutingWrapper />
-    </MuiThemeProvider>
-  </React.StrictMode>,
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById('root')
 );
 
