@@ -4,9 +4,9 @@ import "./PrivacyPolicy.css";
 class PrivacyPolicy extends React.PureComponent {
   render() {
     return (
-      <div className="privacy-policy">
+      <div className="main-content">
         <h2>Privacy Policy</h2>
-          This Statement of Privacy applies to
+          This Statement of Privacy applies to the website
           https://teaching-scripts.herokuapp.com/ (referred to in this policy as "this site"),
           and governs data collection and usage. This site is a Google Drive Tooling website.
           The intent of this site is to facilitate teachers' ability to import form data into
@@ -17,10 +17,9 @@ class PrivacyPolicy extends React.PureComponent {
             We do not collect any personal information about you unless you
             voluntarily provide it to us. However, you may be required to
             provide certain personal information to us when you elect to use
-            certain products or services available on this site. These may
-            include: (a) registering for an account on our site; (b) sending us an
-            email message. To wit, we will use your information for, but not limited
-            to, communicated with you in relation to services and/or products you
+            certain products or services available on this site.
+            We will use your information for, but not limited
+            to, communication with you in relation to services and/or products you
             have requested from us. We may also gather additional personal or
             non-personal information in the future.
           <h4>Sharing Information with Third Parties</h4>
@@ -43,9 +42,6 @@ class PrivacyPolicy extends React.PureComponent {
             website addresses. This information is used for the operation of the service, to maintain quality
             of the service, and to provide general statistics regarding use of this site.
           <h4>Security of your Personal Information</h4>
-            This site secures your personal information from unauthorized access, use, or disclosure.
-            This site does not implement its own authentication, but rather relies on that of Google OAuth2.
-            <br/><br/>
             We strive to take appropriate security measures to protect against unauthorized access to or alteration
             of your personal information. Unfortunately, no data transmission over the Internet or any wireless network
             can be guarenteed to be 100% secure. As a result, while we strive to protect your personal information,
@@ -64,7 +60,7 @@ class PrivacyPolicy extends React.PureComponent {
             agreement to abide and be bound by that Policy.
           <h4>Contact Information</h4>
             We welcome your questions or comments regarding this Statement of Privacy. Please contact Sarah Weinstein
-            at sweinstein22@yahoo.com.
+            at sweinstein26@gmail.com.
           <br/><br/><br/>
           Effective as of August 07, 2020
       </div>
