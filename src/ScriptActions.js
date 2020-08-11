@@ -21,7 +21,6 @@ const ScriptActions = {
   function getNameFields(firstSlideId) {
     var response =
         Slides.Presentations.Pages.get(presentationId, firstSlideId, {fields: 'pageElements.objectId,pageElements.shape'});
-    Logger.log('Resp: ' + response.pageElements.filter(function f(elem) {
       if (elem.shape && elem.shape.shapeType === 'TEXT_BOX') return true;
       return false;
     }).splice(1));
@@ -34,7 +33,6 @@ const ScriptActions = {
   }
 
   function setStudentName(pageElementId, studentName) {
-    Logger.log('pageElemId studentName: ' + pageElementId)
     var requests = [{
       insertText: {
         objectId: pageElementId,
@@ -53,7 +51,6 @@ const ScriptActions = {
         fields: 'fontSize'
       }
     }];
-        Logger.log('Added student name: ' + studentName);
 
     var response =
         Slides.Presentations.batchUpdate({'requests': requests}, presentationId);
@@ -74,7 +71,7 @@ const ScriptActions = {
     var studentName = "";
 
     keys.forEach(function f(key, index) {
-      if (index === 0) studentName = values[index];
+      if (index === 0) studentName = values[index].split(" ")[0];
       var info = \`$\{key}: $\{values[index]}\n\n\`;
       if (index <= halfwayKeyIndex) {
         leftSide = leftSide.concat(info);

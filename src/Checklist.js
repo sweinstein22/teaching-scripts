@@ -13,7 +13,7 @@ class Checklist extends React.PureComponent {
           <List>
             <ListItem>
               <ListItemIcon><Folder /></ListItemIcon>
-              <a href="" target="_blank" rel="noopener noreferrer">Student Directory Google Slide Deck</a>
+              <a href="https://docs.google.com/presentation/d/1iKPCp5cSlobceQQ-42ceOGuebKO0-uOFtVuLtZIu_bs/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Student Directory Google Slide Deck</a>
             </ListItem>
             <ListItem>
               <ListItemIcon><Folder /></ListItemIcon>

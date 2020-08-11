@@ -64,6 +64,9 @@ class App extends React.PureComponent {
           <h1>
             Populate Student Directory Google Slides
           </h1>
+          Note: This script generator was made with the assumption that the
+          first question asked would be the student's name. If that is not the
+          case, the first page of the slide deck will be populated incorrectly.
         </span>
         <div className="interactive-section">
           <div>
