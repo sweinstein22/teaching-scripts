@@ -12,6 +12,7 @@ class App extends React.PureComponent {
     super(props);
     this.state = {
       copySuccess: false,
+      copyPermissionsSuccess: false,
       fileContent: null,
       fileContentJson: [],
       presentationId: "",
@@ -47,9 +48,16 @@ class App extends React.PureComponent {
     this.setState({copySuccess: true})
   }
 
+  copyPermissionsToClipboard = () => {
+    const elem = this.permissionsArea
+    elem.select()
+    document.execCommand("copy")
+    this.setState({copyPermissionsSuccess: true})
+  }
+
 
   render() {
-    const {fileContentJson, presentationId, copySuccess} = this.state;
+    const {fileContentJson, presentationId,  copySuccess, copyPermissionsSuccess} = this.state;
 
     const jsonParsingOptions = {
       header: true,
@@ -106,10 +114,27 @@ class App extends React.PureComponent {
             <br/>
             <h4>Step 4-8:</h4>
             In Google Drive, see instructions for details
+          <div>
+            <h4>Step 9:</h4>
+            <textarea
+              ref={(textarea) => this.permissionsArea = textarea}
+              value={presentationId ? ScriptActions.permissionsScript() : ''}
+              readOnly
+            />
+          </div>
+          <br/>
+          <div>
+            <Button variant="outlined" onClick={() => this.copyPermissionsToClipboard()}>
+              Copy to Clipboard
+            </Button>
+          </div>
+            <br/>
+            <h4>Step 10-13:</h4>
+            In Google Drive, see instructions for details
         </div>
 
         <div className="checklist-section">
-          <Checklist {...{presentationId, fileContentJson, copySuccess}} />
+          <Checklist {...{presentationId, fileContentJson, copySuccess, copyPermissionsSuccess}} />
         </div>
       </div>
     );

@@ -21,9 +21,6 @@ const ScriptActions = {
   function getNameFields(firstSlideId) {
     var response =
         Slides.Presentations.Pages.get(presentationId, firstSlideId, {fields: 'pageElements.objectId,pageElements.shape'});
-      if (elem.shape && elem.shape.shapeType === 'TEXT_BOX') return true;
-      return false;
-    }).splice(1));
 
     var filteredResults = response.pageElements.filter(function f(elem) {
       if (elem.shape && elem.shape.shapeType === 'TEXT_BOX') return true;
@@ -187,7 +184,19 @@ const ScriptActions = {
                response.replies[0].createShape.objectId);
   }
 }`
-  }
+  },
+  permissionsScript: () => `{
+  "timeZone": "America/Los_Angeles",
+  "dependencies": {
+    "enabledAdvancedServices": [{
+      "userSymbol": "Slides",
+      "serviceId": "slides",
+      "version": "v1"
+    }]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
+}`
 };
 
 export default ScriptActions;

@@ -5,7 +5,7 @@ import store from './ReduxStore';
 
 class Checklist extends React.PureComponent {
   render() {
-    const {presentationId, fileContentJson, copySuccess} = this.props;
+    const {presentationId,fileContentJson, copySuccess, copyPermissionsSuccess} = this.props;
 
     return (
       <span>
@@ -32,6 +32,10 @@ class Checklist extends React.PureComponent {
             </ListItem>
             <ListItem>
               <ListItemIcon>B.</ListItemIcon>
+                <p>Unzip the downloaded file, either by double clicking the file or using an online CSV unzipper like<a href="https://www.ezyzip.com/unzip-files-online.html">this one.</a></p>
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>C.</ListItemIcon>
               Clone the Student Directory slide deck linked above. Make sure you have enough directory slides for each student, as the script will only populate existing slides. The template contains slides for 33 students.
               <ListItemSecondaryAction>
                 <HelpOutline size="small" onClick={() => store.dispatch({type: 'SET', path: 'cloneGoogleSlidesDialog', value: true})} />
@@ -42,24 +46,21 @@ class Checklist extends React.PureComponent {
           <h4>Steps to Populate Slides:</h4>
           <List>
             <ListItem>
-              {presentationId === ''
-                  ? <ListItemIcon>1.</ListItemIcon>
-                  : <ListItemIcon><CheckCircle style={{ color: 'lightgreen' }}/></ListItemIcon>
-              }
+              <ListItemIcon>
+                {presentationId === '' ? "1." : <CheckCircle style={{ color: 'lightgreen' }}/>}
+              </ListItemIcon>
               Input the URL of the Google Slides presentation
             </ListItem>
             <ListItem>
-              {fileContentJson.length
-                  ? <ListItemIcon><CheckCircle style={{ color: 'lightgreen' }}/></ListItemIcon>
-                  : <ListItemIcon>2.</ListItemIcon>
-              }
+              <ListItemIcon>
+                {fileContentJson.length ? <CheckCircle style={{ color: 'lightgreen' }}/> : "2."}
+              </ListItemIcon>
               Upload the CSV file downloaded in Setup step B.
             </ListItem>
             <ListItem>
-              {copySuccess
-                  ? <ListItemIcon><CheckCircle style={{ color: 'lightgreen' }}/></ListItemIcon>
-                  : <ListItemIcon>3.</ListItemIcon>
-              }
+              <ListItemIcon>
+                {copySuccess ? <CheckCircle style={{ color: 'lightgreen' }}/> : "3."}
+              </ListItemIcon>
               Copy the output to your clipboard using the provided button.
             </ListItem>
             <ListItem>
@@ -76,10 +77,32 @@ class Checklist extends React.PureComponent {
             </ListItem>
             <ListItem>
               <ListItemIcon>7.</ListItemIcon>
-              Click the icon shaped like a play button, in the toolbar right above the label 'Code.gs'.
+              Click the icon shaped like a floppy disk to save the script. You will have to give it a name to do so, the name will not affect the performance of the script.
             </ListItem>
             <ListItem>
               <ListItemIcon>8.</ListItemIcon>
+              Navigate to the top menu bar and click 'View' > 'Show Manifest File'. You should now see a second item in the lefthand sidebar called 'appsscript.json'.
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                {copyPermissionsSuccess ? <CheckCircle style={{ color: 'lightgreen' }}/> : "9."}
+              </ListItemIcon>
+              Copy the code from the second textbox on the left side of this site, using the provided button.
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>10.</ListItemIcon>
+              Return to 'appsscripts.json', remove all the text currently on the file, and replace it with the text copied in step 9. Click the floppy disc icon again to save the file.
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>11.</ListItemIcon>
+              Return to 'Code.gs' by using the lefthand sidebar. Click the icon shaped like a play button, in the toolbar right above the label 'Code.gs'.
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>12.</ListItemIcon>
+              <p>You may need to confirm that you give the script permission to access your Google Slides by clicking through the 'Review Permissions' option, and then via a pop up window before the script can execute. <br/><br/><b>Note:</b> Because this script isn't verified you will get a warning. This is okay, and does not represent a security issue. Click 'Advanced' and then 'Go to Test Student Directory (unsafe)', then click 'Allow'.</p>
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>13.</ListItemIcon>
               Give the script a bit of time to finish, then check your copy of the Student Directory to see the filled out deck!
             </ListItem>
           </List>
