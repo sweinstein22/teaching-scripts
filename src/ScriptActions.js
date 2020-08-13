@@ -12,8 +12,8 @@ const ScriptActions = {
     var jsonForIndex = fileJson[index];
     if (jsonForIndex) {
       var entry = processFormEntry(jsonForIndex)
-      addLeftTextBox(slideId, entry['leftSide']);
-      addRightTextBox(slideId, entry['rightSide']);
+      if (entry['leftSide']) addLeftTextBox(slideId, entry['leftSide']);
+      if (entry['rightSide']) addRightTextBox(slideId, entry['rightSide']);
       if (nameFields[index]) setStudentName(nameFields[index], entry['studentName']);
    }
   })
@@ -41,7 +41,7 @@ const ScriptActions = {
         objectId: pageElementId,
         style: {
           fontSize: {
-            magnitude: 12,
+            magnitude: 10,
             unit: 'PT'
           },
         },
