@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import { TextField, Button } from '@material-ui/core';
+import { Videocam } from '@material-ui/icons';
 import Dialog from './Dialog';
 import Checklist from './Checklist';
 import ScriptActions from './ScriptActions';
@@ -72,6 +73,11 @@ class App extends React.PureComponent {
           <h1>
             Populate Student Directory Google Slides
           </h1>
+          <div>
+            <Videocam fontSize="large" className="vertical-align-middle" />
+            <a href="https://drive.google.com/file/d/1rGSNWkjrJEJpqoJI41E8FuX9_nVOqBnU/view?usp=sharing" target="_blank" rel="noopener noreferrer">Click Here for Video Tutorial</a>
+          </div>
+          <br/>
           Note: This script generator was made with the assumption that the
           first question asked would be the student's name. If that is not the
           case, the first page of the slide deck will be populated incorrectly.

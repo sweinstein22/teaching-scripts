@@ -32,7 +32,7 @@ class Checklist extends React.PureComponent {
             </ListItem>
             <ListItem>
               <ListItemIcon>B.</ListItemIcon>
-                <p>Unzip the downloaded file, either by double clicking the file or using an online CSV unzipper like<a href="https://www.ezyzip.com/unzip-files-online.html">this one.</a></p>
+                <p>Unzip the downloaded file, either by double clicking the file or using an online CSV unzipper like<a href="https://www.ezyzip.com/unzip-files-online.html" target="_blank" rel="noopener noreferrer">this one.</a></p>
             </ListItem>
             <ListItem>
               <ListItemIcon>C.</ListItemIcon>
